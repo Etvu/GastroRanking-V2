@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GastroRanking</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <a href="design.html">Design</a>
+    <h1>GastroRanking</h1>
+    <!--Form pour ajouter le restau-->
+    <div class="content">
+        <div class="ajouterRestau">
+            <h2>Ajouter un restaurant</h2>
+            <form id="restaurantForm">
+                <input name="name" placeholder="Nom" required />
+                <input name="typeOfCuisine" placeholder="Type de cuisine" required />
+                <input name="country" placeholder="Pays (ex: France)" required />
+                <input name="note" type="number" min="0" max="5" step="0.1" placeholder="Note (0-5)" />
+                <button type="submit">Ajouter</button>
+            </form>
+        </div>
+        <h2>Rechercher un restaurant</h2>
+        <input id="searchInput" type="search" placeholder="Rechercher un restaurant…" />
+        <!--div pour le message-->
+        <div id="message" class="message"></div>
+        <!--filtres-->
+        <section id="filters">
+            <select id="filterCountry">
+                <option value="">Tous les pays</option>
+            </select>
+
+            <select id="filterCuisine">
+                <option value="">Toutes les cuisines</option>
+            </select>
+
+            <label>
+                <input type="checkbox" id="filterFav" />
+                Favoris uniquement
+            </label>
+
+            <select id="sortBy">
+                <option value="name-asc">Nom (A→Z)</option>
+                <option value="name-desc">Nom (Z→A)</option>
+                <option value="note-desc">Note (↓)</option>
+                <option value="note-asc">Note (↑)</option>
+            </select>
+        </section>
+
+        <!--liste restau-->
+        <div id="restaurantList"></div>
+
+        <!--reviews-->
+        <section id="reviewPanel" style="display:none;">
+            <h3 id="reviewTitle"></h3>
+            <div id="reviewList"></div>
+
+            <form id="reviewForm">
+                <input name="user" placeholder="Ton nom" required />
+                <input name="value" type="number" min="0" max="5" step="0.5" required />
+                <input name="comment" placeholder="Commentaire" />
+                <button type="submit">Ajouter un avis</button>
+            </form>
+        </section>
+    </div>
+
+    <script type="module" src="./js/app.js"></script>
+</body>
+
+</html>
